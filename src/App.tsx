@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { PublicLayout } from './layouts/PublicLayout'
 import { Home } from './pages/public/Home'
+import { About } from './pages/public/About'
 const router = createBrowserRouter([
   //GROUPE PUBLIC
   {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
       // // { path: "authadmin", element: "" },
       // { path: "subscriptionPayment", element: <SubscriptionPayment /> },
       // { path: "artisans", element: <ArtistsDirectory /> },
-      // { path: "about", element: <About /> },
+      { path: "about", element: <About /> },
     ],
   },
 
