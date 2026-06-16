@@ -1,10 +1,8 @@
 import { ShieldCheck, ShoppingBag } from "lucide-react"
-import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Stats } from "./Stats"
 
 export const Hero = () => {
-  const navigate = useNavigate()
   return (
     <section className="dark relative flex min-h-[85vh] items-center overflow-hidden bg-background px-4 py-16 sm:px-6 lg:px-8">
       {/* VIDEO BACKGROUND */}
@@ -51,7 +49,6 @@ export const Hero = () => {
           <div className="mt-8 gap-3 sm:mx-auto sm:flex sm:max-w-lg sm:justify-center lg:mx-0 lg:justify-start">
             <Button
               size={"lg"}
-              onClick={() => navigate("/catalog")}
               className="w-full cursor-pointer gap-2 font-medium shadow-md sm:w-auto"
             >
               <ShoppingBag className="h-4 w-4" />
@@ -60,7 +57,6 @@ export const Hero = () => {
             <Button
               size={"lg"}
               variant={"outline"}
-              onClick={() => navigate("/auth")}
               className="w-full cursor-pointer font-medium backdrop-blur-sm sm:w-auto"
             >
               Devenir Vendeur

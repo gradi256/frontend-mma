@@ -10,9 +10,9 @@ interface NavItem {
 
 const NavItems: NavItem[] = [
   { label: "Accueil", href: "/" },
-  { label: "Découvrir les œuvres", href: "/catalog" },
+  { label: "Découvrir les œuvres", href: "/catalogue" },
   { label: "Nos Artisans", href: "/artisans" },
-  { label: "Notre histoire", href: "/about" },
+  { label: "Notre histoire", href: "/à-propos" },
 ]
 
 export const Navbar = () => {
@@ -56,12 +56,10 @@ export const Navbar = () => {
           <Button
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
             variant={"ghost"}
-            onClick={() => navigate("/auth")}
           >
             Connexion
           </Button>
           <Button
-            onClick={() => navigate("/auth")}
             className="gap-1.5 text-sm font-medium shadow-sm transition-all hover:opacity-90"
           >
             Créer un compte <ArrowRight className="h-4 w-4" />
@@ -111,13 +109,11 @@ export const Navbar = () => {
                 <div className="flex flex-col gap-3 border-t border-border pt-6">
                   <Button
                     variant={"outline"}
-                    onClick={() => navigate("/auth")}
                     className="w-full justify-center border-border hover:bg-accent"
                   >
                     Connexion
                   </Button>
                   <Button
-                    onClick={() => navigate("/auth")}
                     className="w-full justify-center gap-1.5"
                   >
                     Créer un compte

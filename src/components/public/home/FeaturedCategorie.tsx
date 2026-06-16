@@ -6,7 +6,6 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react"
-import { useNavigate } from "react-router-dom"
 
 const categories = [
   {
@@ -39,7 +38,6 @@ const categories = [
 ]
 
 export const FeaturedCategorie = () => {
-  const navigate = useNavigate()
   return (
     <section className="border-t border-border bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -61,7 +59,6 @@ export const FeaturedCategorie = () => {
 
           <Button
             variant={"ghost"}
-            onClick={() => navigate("/catalog")}
             className="cursor-pointer gap-1.5 self-start text-sm font-medium text-muted-foreground hover:text-foreground md:self-auto"
           >
             Voir toutes les catégories
@@ -76,7 +73,6 @@ export const FeaturedCategorie = () => {
             return (
               <div
                 key={category.name}
-                onClick={() => navigate(`/catalog?category=${category.slug}`)}
                 className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border-border bg-card p-2 shadow-sm transition-all duration-300 hover:border-border/80 hover:shadow-xl hover:shadow-accent/10"
               >
                 {/* Zone image */}
