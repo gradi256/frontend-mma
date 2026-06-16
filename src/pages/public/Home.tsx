@@ -4,6 +4,7 @@ import { FeaturedCtaEnded } from "@/components/public/home/FeaturedCtaEnded"
 import { FeaturedFaq } from "@/components/public/home/FeaturedFaq"
 import { FeaturedHowItWork } from "@/components/public/home/FeaturedHowItWork"
 import { Hero } from "@/components/public/home/Hero"
+import { Footer } from "@/components/shared/Footer"
 import { Navbar } from "@/components/shared/Navbar"
 
 export const Home = () => {
@@ -16,7 +17,7 @@ export const Home = () => {
       <FeaturedCorePricing />
       <FeaturedFaq />
       <FeaturedCtaEnded />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { ArrowRight, Menu } from "lucide-react"
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet"
 import { Button } from "../ui/button"
@@ -10,19 +10,17 @@ interface NavItem {
 
 const NavItems: NavItem[] = [
   { label: "Accueil", href: "/" },
-  { label: "Découvrir les œuvres", href: "/catalogue" },
+  { label: "Découvrir les œuvres", href: "/catalog" },
   { label: "Nos Artisans", href: "/artisans" },
-  { label: "Notre histoire", href: "/à-propos" },
+  { label: "Notre histoire", href: "/about" },
 ]
 
 export const Navbar = () => {
-  const navigate = useNavigate()
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* LOGO */}
         <div
-          onClick={() => navigate("/")}
           className="transition-transform active:scale-95"
         >
           <img
