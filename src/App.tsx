@@ -1,19 +1,53 @@
-import { Button } from "@/components/ui/button"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { PublicLayout } from './layouts/PublicLayout'
+import { Home } from './pages/public/Home'
+const router = createBrowserRouter([
+  //GROUPE PUBLIC
+  {
+    path: "/",
+    element: <PublicLayout />,
+    children: [
+      { index: true, element: <Home /> },
+      // { path: "auth", element: <Auth /> },
+      // { path: "checkout", element: "" },
+      // { path: "catalog", element: <Catalogue /> },
+      // // { path: "authadmin", element: "" },
+      // { path: "subscriptionPayment", element: <SubscriptionPayment /> },
+      // { path: "artisans", element: <ArtistsDirectory /> },
+      // { path: "about", element: <About /> },
+    ],
+  },
 
-export function App() {
+  // GROUPE VENDEUR
+  // {
+  //   path: "/seller",
+  //   element: (
+  //       <SellerLayout />
+  //   ),
+  //   children: [{ path: "/seller", element: <SellerDashboard /> }],
+  // },
+
+  // //ROUTE ADMMIN
+  // {
+  //   path: "/admin",
+  //   element: (
+  //     <AdminLayout />
+  //   ),
+  //   children: [
+  //     { index: true, element: <Dashboard /> },
+  //     { path: "/admin/artworks", element: <Artworks /> },
+  //     { path: "/admin/subscriptions", element: <Subscriptions /> },
+  //     { path: "/admin/users", element: <Users /> },
+  //     { path: "/admin/settings", element: <Settings /> },
+  //   ],
+  // },
+])
+
+
+const App = () => {
   return (
-    <div className="flex min-h-svh p-6">
-      <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-        <div>
-          <h1 className="font-medium">Project ready!</h1>
-          <p>You may now add components and start building.</p>
-          <p>We&apos;ve already added the button component for you.</p>
-          <Button className="mt-2">Button</Button>
-        </div>
-        <div className="font-mono text-xs text-muted-foreground">
-          (Press <kbd>d</kbd> to toggle dark mode)
-        </div>
-      </div>
+    <div>
+      <RouterProvider router={router} />
     </div>
   )
 }
