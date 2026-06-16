@@ -1,11 +1,12 @@
 import { FeaturedCategorie } from "@/components/public/home/FeaturedCategorie"
+import { Hero } from "@/components/public/home/Hero"
 import { Navbar } from "@/components/shared/Navbar"
 
 export const Home = () => {
   return (
     <div>
       <Navbar />
-       {/* <Hero /> */}
+       <Hero />
       <FeaturedCategorie />
       {/* <FeaturedHowItWork /> */}
       {/* <FeaturedCorePricing /> */}
