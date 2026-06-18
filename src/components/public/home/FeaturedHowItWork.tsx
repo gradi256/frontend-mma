@@ -29,7 +29,6 @@ export const FeaturedHowItWork = () => {
     <section className="border-t border-border bg-background py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="lg:grid lg:grid-cols-12 lg:gap-16">
-          {/* COLLONNE GAUCHE : TEXT-EXPLICATIF */}
           <div className="mb-12 flex flex-col justify-center lg:col-span-5 lg:mb-0">
             <div className="mb-3 inline-flex items-center self-start rounded-full border border-primary/10 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
               Transparence totale
@@ -46,7 +45,6 @@ export const FeaturedHowItWork = () => {
             </p>
           </div>
 
-          {/* COLLONNE DROITE : LES ETAPES */}
           <div className="flex flex-col justify-center gap-8 lg:col-span-7">
             <div className="grid grid-cols-1 gap-8">
               {steps.map((step) => {

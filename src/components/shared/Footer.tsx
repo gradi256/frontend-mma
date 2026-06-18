@@ -6,9 +6,7 @@ export const Footer = () => {
   return (
     <footer className="border-t border-border bg-background py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Grille principale */}
         <div className="border-b border-border/60 pb-8 xl:grid xl:grid-cols-3 xl:gap-8">
-          {/* Branding & vision */}
           <div className="space-y-4 xl:col-span-1">
             <div className="flex items-center gap-2">
               <Shield className="h-5 w-5 text-foreground" />
@@ -24,7 +22,6 @@ export const Footer = () => {
             </p>
           </div>
 
-          {/* Sections de liens */}
           <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div className="">
@@ -107,7 +104,6 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Section Copyright */}
         <div className="mt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="font-sans text-xs tracking-wide text-muted-foreground">
             &copy; {currentYear} Mnara. Tous droits réservés.

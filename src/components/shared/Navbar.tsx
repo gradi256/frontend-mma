@@ -19,7 +19,6 @@ export const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* LOGO */}
         <div
           className="transition-transform active:scale-95"
         >
@@ -30,7 +29,6 @@ export const Navbar = () => {
           />
         </div>
 
-        {/* NAVIGATION DESKTOP */}
         <nav className="hidden items-center gap-1 lg:flex">
           {NavItems.map((item) => (
             <NavLink
@@ -49,7 +47,6 @@ export const Navbar = () => {
           ))}
         </nav>
 
-        {/* ACTIONS DESKTOP */}
         <div className="hidden items-center gap-3 lg:flex">
           <Button
             className="text-sm font-medium text-muted-foreground hover:text-foreground"
@@ -64,7 +61,6 @@ export const Navbar = () => {
           </Button>
         </div>
 
-        {/* MENU MOBILE RESPONSIVE */}
         <div className="flex lg:hidden">
           <Sheet>
             <SheetTrigger asChild>
@@ -84,7 +80,6 @@ export const Navbar = () => {
               <SheetTitle className="sr-only">Navigation mobile</SheetTitle>
 
               <div className="flex h-full flex-col justify-between pt-8">
-                {/* Liens de navigations mobiles */}
                 <div className="flex flex-col gap-2">
                   {NavItems.map((item) => (
                     <NavLink
@@ -103,7 +98,6 @@ export const Navbar = () => {
                   ))}
                 </div>
 
-                {/* Actions au bas du menu mobile */}
                 <div className="flex flex-col gap-3 border-t border-border pt-6">
                   <Button
                     variant={"outline"}

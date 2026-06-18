@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { PublicLayout } from './layouts/PublicLayout'
 import { Home } from './pages/public/Home'
 import { About } from './pages/public/About'
+import { Catalogue } from './pages/public/Catalogue'
+import ArtistsDirectory from './pages/public/ArtistsDirectory'
 const router = createBrowserRouter([
   //GROUPE PUBLIC
   {
@@ -11,10 +13,10 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       // { path: "auth", element: <Auth /> },
       // { path: "checkout", element: "" },
-      // { path: "catalog", element: <Catalogue /> },
+      { path: "catalog", element: <Catalogue /> },
       // // { path: "authadmin", element: "" },
       // { path: "subscriptionPayment", element: <SubscriptionPayment /> },
-      // { path: "artisans", element: <ArtistsDirectory /> },
+      { path: "artisans", element: <ArtistsDirectory /> },
       { path: "about", element: <About /> },
     ],
   },

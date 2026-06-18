@@ -41,7 +41,6 @@ export const FeaturedCategorie = () => {
   return (
     <section className="border-t border-border bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* EN TETE DE LA SECTION */}
         <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-xl">
             <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
@@ -66,7 +65,6 @@ export const FeaturedCategorie = () => {
           </Button>
         </div>
 
-        {/* GRILLE DES CARTES EXCLUSIVES */}
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8">
           {categories.map((category) => {
             const IconComponent = category.icon
@@ -75,7 +73,6 @@ export const FeaturedCategorie = () => {
                 key={category.name}
                 className="group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border-border bg-card p-2 shadow-sm transition-all duration-300 hover:border-border/80 hover:shadow-xl hover:shadow-accent/10"
               >
-                {/* Zone image */}
                 <div className="relative aspect-4/3 w-full overflow-hidden rounded-xl bg-muted">
                   <img
                     src={category.image}
@@ -83,13 +80,11 @@ export const FeaturedCategorie = () => {
                     loading="lazy"
                     className="transitin-transform h-full w-full object-cover duration-700 ease-out group-hover:scale-103"
                   />
-                  {/* Badge duc ompteur */}
                   <span className="absolute top-3 right-3 rounded-md bg-background/90 px-2.5 py-1 text-xs font-semibold text-foreground shadow-sm backdrop-blur-sm">
                     {category.count}
                   </span>
                 </div>
 
-                {/* Contenu textuel */}
                 <div className="flex flex-1 flex-col p-4 pt-5">
                   <div className="mb-2 flex items-center gap-2">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
@@ -104,7 +99,6 @@ export const FeaturedCategorie = () => {
                     {category.description}
                   </p>
 
-                  {/* Interaction Parcour dynamique */}
                   <div className="mt-5 flex items-center gap-1.5 text-sm font-semibold text-foreground">
                     <span className="transtion-colors group-hover:text-primary">
                       Parcourir

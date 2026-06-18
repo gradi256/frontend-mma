@@ -3,7 +3,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import {
- 
   Palette,
   Heart,
   Globe,
@@ -12,8 +11,6 @@ import {
 } from "lucide-react"
 
 export const About = () => {
-
-  // Valeurs statistiques fictives pour le projet
   const stats = [
     { value: "150+", label: "Artisans Référencés" },
     { value: "1200+", label: "Œuvres d'Art Créées" },
@@ -21,7 +18,6 @@ export const About = () => {
     { value: "0%", label: "Commission sur les Ventes Directes" },
   ]
 
-  // Valeurs clés de la plateforme
   const values = [
     {
       icon: <Palette className="h-6 w-6 text-primary" />,
@@ -48,7 +44,6 @@ export const About = () => {
       <div className="mx-auto max-w-7xl space-y-16">
         <Navigation />
 
-        {/* SECTION HÉROS À PROPOS */}
         <div className="grid gap-12 pt-4 lg:grid-cols-2 lg:items-center">
           <div className="space-y-6">
             <Badge
@@ -88,7 +83,6 @@ export const About = () => {
             </div>
           </div>
 
-          {/* GRILLE COMPOSÉE D'IMAGES/ILLUSTRATIONS CHALEUREUSES */}
           <div className="relative grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <img
@@ -114,12 +108,10 @@ export const About = () => {
                 className="h-64 w-full rounded-2xl object-cover shadow-md"
               />
             </div>
-            {/* Décoration subtile en arrière-plan */}
             <div className="absolute -inset-4 -z-10 rounded-3xl bg-primary/5 blur-2xl" />
           </div>
         </div>
 
-        {/* SECTION STATISTIQUES RELEVÉES */}
         <div className="grid grid-cols-2 gap-4 rounded-3xl border border-muted/60 bg-card p-8 text-center shadow-xs sm:grid-cols-4">
           {stats.map((stat, idx) => (
             <div key={idx} className="space-y-1">
@@ -133,7 +125,6 @@ export const About = () => {
           ))}
         </div>
 
-        {/* SECTION NOS VALEURS FONDATRICES */}
         <div className="space-y-10">
           <div className="mx-auto max-w-2xl space-y-3 text-center">
             <h2 className="font-serif text-3xl font-bold tracking-tight">
@@ -167,7 +158,6 @@ export const About = () => {
           </div>
         </div>
 
-        {/* FOOTER APPEL À L'ACTION */}
         <div className="relative space-y-6 overflow-hidden rounded-3xl bg-zinc-900 p-8 text-center text-zinc-100 sm:p-12 dark:border dark:bg-card">
           <div className="relative z-10 mx-auto max-w-2xl space-y-3">
             <h2 className="font-serif text-2xl font-bold tracking-tight text-white sm:text-3xl">
@@ -186,7 +176,6 @@ export const About = () => {
               Rejoindre l'Aventure
             </Button>
           </div>
-          {/* Filigrane discret en fond */}
           <Globe className="pointer-events-none absolute -right-10 -bottom-10 h-48 w-48 text-zinc-800/40" />
         </div>
       </div>

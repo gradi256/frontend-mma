@@ -13,10 +13,8 @@ export const FeaturedCtaEnded = () => {
         src="hero_vid5.mp4"
       />
 
-      {/* OVERLAY POUR LA LISIBILITE DU TEXTE */}
       <div className="absolute inset-0 bg-black/60"></div>
 
-      {/* CONTENU */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative isolate overflow-hidden rounded-3xl bg-white/10 px-6 py-12 text-center text-background shadow-xl backdrop-blur-sm sm:px-16">
           <h2 className="mx-auto max-w-2xl font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl">
