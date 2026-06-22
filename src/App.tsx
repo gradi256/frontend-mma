@@ -10,6 +10,7 @@ import { AuthentificationRegister } from "./pages/auth/AuthentificationRegister"
 import { ConnexxionSeller } from "./pages/auth/ConnexxionSeller"
 import { RegisterClient } from "./pages/auth/RegisterCient"
 import { ConnexionClient } from "./pages/auth/ConnexionClient"
+import { AuthentificationConnexion } from "./pages/auth/AuthentificationConnexion"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
     element: <AuthLayout />,
     children: [
       { path: "/auth/auth-register", element: <AuthentificationRegister /> },
+      { path: "/auth/auth-connexion", element: <AuthentificationConnexion /> },
       { path: "/auth/auth-register/artisan", element: <RegisterSeller /> },
       { path: "/auth/auth-connexion/artisan", element: <ConnexxionSeller /> },
       { path: "/auth/auth-register/client", element: <RegisterClient /> },
