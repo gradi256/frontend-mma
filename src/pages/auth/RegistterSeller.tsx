@@ -13,6 +13,17 @@ import {
   Camera,
   Lock
 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export const RegisterSeller = () => {
   const [step, setStep] = useState(1);
@@ -107,20 +118,20 @@ export const RegisterSeller = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Nom</label>
-                    <input className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Kasanji" />
+                    <Label htmlFor="lastname">Nom</Label>
+                    <Input id="lastname" placeholder="Kasanji" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium leading-none">Prénom</label>
-                    <input className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" placeholder="Dieudonné" />
+                    <Label htmlFor="firstname">Prénom</Label>
+                    <Input id="firstname" placeholder="Dieudonné" />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <label className="text-sm font-medium leading-none">Pseudonyme d'artiste</label>
+                    <Label htmlFor="pseudonym">Pseudonyme d'artiste</Label>
                     <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Optionnel</span>
                   </div>
-                  <input className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" placeholder="El_Sculpto" />
+                  <Input id="pseudonym" placeholder="El_Sculpto" />
                 </div>
               </div>
             )}
@@ -133,25 +144,33 @@ export const RegisterSeller = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <label className="text-sm font-medium leading-none">Pays</label>
-                    <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                      <option value="">Choisir</option>
-                      <option value="CD">RD Congo</option>
-                      <option value="CG">Congo Brazza</option>
-                    </select>
+                    <Label>Pays</Label>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Choisir" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="CD">RD Congo</SelectItem>
+                        <SelectItem value="CG">Congo Brazza</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium leading-none">Sexe</label>
-                    <select className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2">
-                      <option value="">Choisir</option>
-                      <option value="M">Homme</option>
-                      <option value="F">Femme</option>
-                    </select>
+                    <Label>Sexe</Label>
+                    <Select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Choisir" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="M">Homme</SelectItem>
+                        <SelectItem value="F">Femme</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium leading-none">Numéro WhatsApp</label>
-                  <input type="tel" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" placeholder="+243 890 000 000" />
+                  <Label htmlFor="whatsapp">Numéro WhatsApp</Label>
+                  <Input id="whatsapp" type="tel" placeholder="+243 890 000 000" />
                 </div>
               </div>
             )}
@@ -176,10 +195,10 @@ export const RegisterSeller = () => {
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center">
-                    <label className="text-sm font-medium leading-none">Biographie</label>
+                    <Label htmlFor="bio">Biographie</Label>
                     <span className="text-[10px] uppercase tracking-wider text-muted-foreground">Optionnel</span>
                   </div>
-                  <textarea rows={4} className="flex min-h-20 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" placeholder="Décrivez votre passion artistique en quelques mots..." />
+                  <Textarea id="bio" rows={4} placeholder="Décrivez votre passion artistique en quelques mots..." />
                 </div>
               </div>
             )}
@@ -191,15 +210,16 @@ export const RegisterSeller = () => {
                   <span>Accès au compte</span>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium leading-none">Adresse e-mail</label>
-                  <input type="email" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" placeholder="artisan@mwanambokart.com" />
+                  <Label htmlFor="email">Adresse e-mail</Label>
+                  <Input id="email" type="email" placeholder="artisan@mwanambokart.com" />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium leading-none">Mot de passe</label>
+                  <Label htmlFor="password">Mot de passe</Label>
                   <div className="relative">
-                    <input 
+                    <Input 
+                      id="password"
                       type={showPassword ? "text" : "password"} 
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 pr-10 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" 
+                      className="pr-10" 
                       placeholder="••••••••" 
                     />
                     <button 
@@ -216,36 +236,37 @@ export const RegisterSeller = () => {
 
             <div className="flex gap-4 pt-6">
               {step > 1 && (
-                <button 
+                <Button 
                   type="button" 
+                  variant="outline"
                   onClick={prevStep}
-                  className="flex-1 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+                  className="flex-1 h-10"
                 >
                   Précédent
-                </button>
+                </Button>
               )}
               {step < 4 ? (
-                <button 
+                <Button 
                   type="button" 
                   onClick={nextStep}
-                  className="flex-1 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2"
+                  className="flex-1 h-10"
                 >
                   Continuer <ArrowRight className="ml-2 w-4 h-4" />
-                </button>
+                </Button>
               ) : (
-                <button 
+                <Button 
                   type="submit"
-                  className="flex-1 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 shadow-lg shadow-primary/20"
+                  className="flex-1 h-10 shadow-lg shadow-primary/20"
                 >
                   Finaliser l'inscription
-                </button>
+                </Button>
               )}
             </div>
           </form>
 
           <div className="mt-8 text-center">
             <p className="text-sm text-muted-foreground">
-              Déjà inscrit ? <NavLink to="/#" className="text-primary font-semibold hover:underline underline-offset-4">Se connecter</NavLink>
+              Déjà inscrit ? <NavLink to="/auth/auth-connexion/artisan" className="text-primary font-semibold hover:underline underline-offset-4">Se connecter</NavLink>
             </p>
           </div>
 

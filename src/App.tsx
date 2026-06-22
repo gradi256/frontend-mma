@@ -5,8 +5,11 @@ import { About } from "./pages/public/About"
 import { Catalogue } from "./pages/public/Catalogue"
 import ArtistsDirectory from "./pages/public/ArtistsDirectory"
 import { AuthLayout } from "./layouts/AuthLayout"
-import { AuthentificationRegister } from "./pages/auth/AuthentificationRegister"
 import { RegisterSeller } from "./pages/auth/RegistterSeller"
+import { AuthentificationRegister } from "./pages/auth/AuthentificationRegister"
+import { ConnexxionSeller } from "./pages/auth/ConnexxionSeller"
+import { RegisterClient } from "./pages/auth/RegisterCient"
+import { ConnexionClient } from "./pages/auth/ConnexionClient"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,7 +29,9 @@ const router = createBrowserRouter([
     children: [
       { path: "/auth/auth-register", element: <AuthentificationRegister /> },
       { path: "/auth/auth-register/artisan", element: <RegisterSeller /> },
-      { path: "/auth/auth-register/client", element: <AuthentificationRegister /> },
+      { path: "/auth/auth-connexion/artisan", element: <ConnexxionSeller /> },
+      { path: "/auth/auth-register/client", element: <RegisterClient /> },
+      { path: "/auth/auth-connexion/client", element: <ConnexionClient /> },
     ],
   },
 

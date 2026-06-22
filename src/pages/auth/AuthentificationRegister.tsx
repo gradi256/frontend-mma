@@ -5,7 +5,6 @@ export const AuthentificationRegister = () => {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col lg:flex-row w-full overflow-hidden">
       
-      {/* SECTION GAUCHE : 2/5 de la page avec la vidéo et le texte */}
       <div className="relative w-full lg:w-[40%] min-h-[40vh] lg:min-h-screen flex flex-col justify-end p-8 lg:p-12 overflow-hidden">
         <div className="absolute inset-0 z-0 w-full h-full">
           <video
@@ -30,7 +29,6 @@ export const AuthentificationRegister = () => {
         </div>
       </div>
 
-      {/* SECTION DROITE : 3/5 de la page pour les boutons et l'authentification */}
       <div className="w-full lg:w-[60%] flex flex-col justify-center items-center px-4 py-12 sm:px-6 lg:px-8 bg-card lg:bg-background">
         <div className="w-full max-w-md space-y-8">
           
@@ -56,7 +54,6 @@ export const AuthentificationRegister = () => {
 
           <div className="space-y-4">
             
-            {/* Option 1 : Artisan */}
             <NavLink
               to="/auth/auth-register/artisan"
               className="group relative flex items-start gap-4 p-5 rounded-xl border border-border bg-card lg:bg-card transition-all duration-200 hover:border-primary hover:bg-muted/10 focus:outline-none focus:ring-2 focus:ring-ring shadow-sm"
@@ -77,9 +74,8 @@ export const AuthentificationRegister = () => {
               <ArrowRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all duration-200" />
             </NavLink>
 
-            {/* Option 2 : Client */}
             <NavLink
-              to="#"
+              to="/auth/auth-register/client"
               className="group relative flex items-start gap-4 p-5 rounded-xl border border-border bg-card lg:bg-card transition-all duration-200 hover:border-accent hover:bg-secondary/30 focus:outline-none focus:ring-2 focus:ring-ring shadow-sm"
             >
               <div className="flex p-3 rounded-lg bg-accent text-accent-foreground group-hover:scale-105 transition-transform duration-200">
