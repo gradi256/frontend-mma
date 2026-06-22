@@ -1,27 +1,14 @@
-import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
 import { 
   ShieldCheck, 
-  Clock, 
-  RefreshCw, 
-  CheckCircle2, 
-  Paintbrush, 
-  AlertCircle
+  ArrowRight,
+  AlertCircle,
+  Inbox
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export const AccountReviewWaiting = () => {
-  const [progress, setProgress] = useState(10);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prev) => (prev >= 100 ? 100 : prev + 1));
-    }, 3000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col lg:flex-row w-full overflow-hidden">
       
@@ -42,13 +29,13 @@ export const AccountReviewWaiting = () => {
         <div className="relative z-10 space-y-4 max-w-sm">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 backdrop-blur-md">
             <ShieldCheck className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold text-white">Vérification en cours</span>
+            <span className="text-xs font-semibold text-white">Inscription enregistrée</span>
           </div>
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-white leading-tight font-heading">
-            Création de votre univers créatif.
+            Votre dossier est entre nos mains.
           </h2>
           <p className="text-sm text-zinc-200 leading-relaxed">
-            Nous préparons votre vitrine et sécurisons votre profil d'artisan pour vous garantir la meilleure expérience sur Mwana Mbok'Art.
+            Nous analysons votre profil avec soin pour garantir l'authenticité et la sécurité de notre communauté d'artisans.
           </p>
         </div>
       </div>
@@ -56,7 +43,7 @@ export const AccountReviewWaiting = () => {
       <div className="w-full lg:w-[60%] flex flex-col items-center justify-center bg-background px-6 py-12 lg:px-20 overflow-y-auto">
         <div className="w-full max-w-md text-center space-y-8">
           
-          <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-muted/50 border border-border mx-auto shadow-inner overflow-hidden animate-pulse">
+          <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-muted/50 border border-border mx-auto shadow-inner overflow-hidden">
             <img 
               src="/LOGO.png" 
               alt="Mwana Mbok'Art" 
@@ -66,77 +53,48 @@ export const AccountReviewWaiting = () => {
 
           <div className="space-y-3">
             <h1 className="text-3xl font-bold tracking-tight text-foreground font-heading">
-              Analyse de votre profil
+              Merci pour votre confiance
             </h1>
             <p className="text-muted-foreground text-sm max-w-sm mx-auto leading-relaxed">
-              Vos informations et vos choix d'abonnement sont en cours de validation par notre équipe de modération.
+              Vos informations ont été transmises avec succès à notre équipe de modération.
             </p>
           </div>
 
           <Card className="border-border bg-card/50 backdrop-blur-xs">
-            <CardContent className="pt-6 space-y-6">
+            <CardContent className="pt-6 space-y-5">
               
               <div className="flex flex-col items-center justify-center space-y-2">
-                <div className="relative flex items-center justify-center">
-                  <RefreshCw className="w-10 h-10 text-primary animate-spin" />
-                  <Paintbrush className="w-4 h-4 text-primary absolute" />
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                  <Inbox className="w-6 h-6" />
                 </div>
-                <span className="text-xs font-medium text-muted-foreground animate-pulse mt-2">
-                  Configuration de la galerie numérique...
-                </span>
+                <p className="text-sm font-semibold mt-2">Vérification par e-mail</p>
               </div>
 
-              <div className="space-y-2">
-                <div className="w-full bg-muted h-2 rounded-full overflow-hidden">
-                  <div 
-                    className="bg-primary h-full rounded-full transition-all duration-500 ease-out"
-                    style={{ width: `${progress}%` }}
-                  />
-                </div>
-                <div className="flex justify-between text-[11px] text-muted-foreground font-medium">
-                  <span>Analyse des pièces</span>
-                  <span>{progress}%</span>
-                </div>
-              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed px-2">
+                Dès que vos informations seront vérifiées et votre compte validé (sous un délai maximum de 30 minutes), vous recevrez un **lien d'activation par e-mail** pour ouvrir officiellement votre vitrine.
+              </p>
 
-              <div className="border-t border-border/60 pt-4 grid grid-cols-2 gap-4 text-left">
-                <div className="flex gap-2.5 items-start">
-                  <Clock className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-xs font-semibold">Temps estimé</p>
-                    <p className="text-[11px] text-muted-foreground">Moins de 30 minutes</p>
-                  </div>
-                </div>
-                <div className="flex gap-2.5 items-start">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-xs font-semibold">Notification</p>
-                    <p className="text-[11px] text-muted-foreground">E-mail envoyé dès validation</p>
-                  </div>
-                </div>
+              <div className="border-t border-border/60 pt-4 flex gap-3 items-start text-left bg-muted/20 p-3 rounded-lg">
+                <AlertCircle className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                  Pensez à vérifier votre dossier **Courriers indésirables (Spam)** si vous ne recevez rien d'ici 30 minutes.
+                </p>
               </div>
 
             </CardContent>
           </Card>
 
           <div className="flex flex-col gap-3 max-w-xs mx-auto">
-            <Button 
-              variant="outline" 
-              onClick={() => window.location.reload()}
-              className="h-10 text-xs font-medium"
-            >
-              <RefreshCw className="mr-2 w-3.5 h-3.5" /> Actualiser le statut
-            </Button>
-            
-            <div className="inline-flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground bg-muted/40 px-3 py-1.5 rounded-lg border border-border">
-              <AlertCircle className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-              <span>Vous pouvez quitter cette page en toute sécurité.</span>
-            </div>
+            <NavLink to="/#" className="w-full">
+              <Button className="w-full h-10 text-xs font-medium shadow-lg shadow-primary/20">
+                Retour à l'accueil <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </NavLink>
           </div>
 
           <div className="pt-4 border-t border-border/50">
             <p className="text-xs text-muted-foreground">
-              Une question ou un problème ?{" "}
+              Besoin d'aide immédiate ?{" "}
               <NavLink to="/support" className="font-semibold text-primary hover:underline underline-offset-4">
                 Contacter le support
               </NavLink>
