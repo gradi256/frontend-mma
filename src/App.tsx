@@ -1,23 +1,32 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { PublicLayout } from './layouts/PublicLayout'
-import { Home } from './pages/public/Home'
-import { About } from './pages/public/About'
-import { Catalogue } from './pages/public/Catalogue'
-import ArtistsDirectory from './pages/public/ArtistsDirectory'
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { PublicLayout } from "./layouts/PublicLayout"
+import { Home } from "./pages/public/Home"
+import { About } from "./pages/public/About"
+import { Catalogue } from "./pages/public/Catalogue"
+import ArtistsDirectory from "./pages/public/ArtistsDirectory"
+import { AuthLayout } from "./layouts/AuthLayout"
+import { AuthentificationRegister } from "./pages/auth/AuthentificationRegister"
+import { RegisterSeller } from "./pages/auth/RegistterSeller"
 const router = createBrowserRouter([
-  //GROUPE PUBLIC
   {
     path: "/",
     element: <PublicLayout />,
     children: [
       { index: true, element: <Home /> },
-      // { path: "auth", element: <Auth /> },
-      // { path: "checkout", element: "" },
       { path: "catalog", element: <Catalogue /> },
-      // // { path: "authadmin", element: "" },
-      // { path: "subscriptionPayment", element: <SubscriptionPayment /> },
       { path: "artisans", element: <ArtistsDirectory /> },
       { path: "about", element: <About /> },
+    ],
+  },
+
+  
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      { path: "/auth/auth-register", element: <AuthentificationRegister /> },
+      { path: "/auth/auth-register/artisan", element: <RegisterSeller /> },
+      { path: "/auth/auth-register/client", element: <AuthentificationRegister /> },
     ],
   },
 
@@ -45,7 +54,6 @@ const router = createBrowserRouter([
   //   ],
   // },
 ])
-
 
 const App = () => {
   return (

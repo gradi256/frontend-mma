@@ -49,106 +49,93 @@
 }
 
 :root {
-  /* Fond pur et texte adouci (inchangé) */
+  /* Fond pur et texte adouci */
   --background: oklch(1 0 0);
   --foreground: oklch(0.12 0.008 250);
 
-  /* Cartes blanches avec une structure très légère (inchangé) */
+  /* Cartes blanches et Popovers */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.12 0.008 250);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.12 0.008 250);
 
-  /* MODIFICATION LOGO : Boutons principaux : Brun foncé luxueux du logo */
+  /* Boutons principaux : Brun foncé luxueux */
   --primary: oklch(0.38 0.08 50);
   --primary-foreground: oklch(0.99 0 0);
 
-  /* Éléments secondaires et survol (Muted/Accent) : Gris ultra-doux (adaptés) */
-  /* --secondary: oklch(0.965 0.003 250); */ /* Version originale */
-  /* --secondary-foreground: oklch(0.2 0.005 250); */ /* Version originale */
-
-  /* MODIFICATION LOGO : Muted et Secondary : Version ultra-douce du pêche */
-  --muted: oklch(0.95 0.01 62);
-  --muted-foreground: oklch(0.52 0.01 250);
-  --secondary: oklch(0.92 0.02 62);
+  /* Muted et Secondary : Version ultra-douce du pêche */
+  --muted: oklch(0.96 0.01 62);
+  --muted-foreground: oklch(0.45 0.02 50); /* Ajusté pour meilleur contraste sur fond clair */
+  --secondary: oklch(0.93 0.02 62);
   --secondary-foreground: oklch(0.2 0.005 250);
 
-  /* MODIFICATION LOGO : Accent : Pêche clair du logo pour les survol */
-  --accent: oklch(0.85 0.09 62);
-  --accent-foreground: oklch(0.14 0.006 250);
+  /* Accent : Pêche clair du logo pour les survols (Hover) */
+  --accent: oklch(0.91 0.05 62); /* Légèrement adouci pour que le texte reste lisible */
+  --accent-foreground: oklch(0.2 0.005 250);
 
-  /* Destructive : Rouge moderne et moins agressif (inchangé) */
+  /* Destructive : Rouge moderne et moins agressif */
   --destructive: oklch(0.6 0.18 25);
 
-  /* Bordures fines et discrètes (inchangé) */
+  /* Bordures fines et discrètes */
   --border: oklch(0.925 0.003 250);
   --input: oklch(0.925 0.003 250);
 
-  /* MODIFICATION LOGO : Ring : Utilisation du brun foncé pour l'anneau de focus */
+  /* Ring : Focus brun transparent */
   --ring: oklch(0.38 0.08 50 / 20%);
-
-  /* Bordures légèrement plus arrondies pour le côté moderne (inchangé) */
   --radius: 0.75rem;
 
-  /* Sidebar épurée (adaptée pour le logo) */
+  /* Sidebar épurée */
   --sidebar: oklch(0.985 0.002 250);
-  --sidebar-foreground: oklch(0.38 0.08 50); /* Brun foncé pour le texte */
-  --sidebar-primary: oklch(0.38 0.08 50); /* Brun foncé pour les boutons */
+  --sidebar-foreground: oklch(0.38 0.08 50);
+  --sidebar-primary: oklch(0.38 0.08 50);
   --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.85 0.09 62); /* Pêche clair pour les accents */
-  --sidebar-accent-foreground: oklch(0.38 0.08 50); /* Brun sur pêche */
+  --sidebar-accent: oklch(0.93 0.02 62);
+  --sidebar-accent-foreground: oklch(0.38 0.08 50);
   --sidebar-border: oklch(0.925 0.003 250);
   --sidebar-ring: oklch(0.38 0.08 50 / 20%);
 }
 
 .dark {
-  /* Mode sombre basé sur un zinc très profond, pas de noir total 0% (inchangé) */
+  /* Mode sombre basé sur un zinc très profond */
   --background: oklch(0.12 0.008 250);
   --foreground: oklch(0.98 0.004 250);
 
-  /* Élévation des cartes en dark mode (inchangé) */
+  /* Élévation des cartes */
   --card: oklch(0.15 0.008 250);
   --card-foreground: oklch(0.98 0.004 250);
   --popover: oklch(0.15 0.008 250);
   --popover-foreground: oklch(0.98 0.004 250);
 
-  /* MODIFICATION LOGO : Boutons principaux inversés : Pêche clair du logo */
+  /* Boutons principaux inversés : Pêche clair lumineux */
   --primary: oklch(0.85 0.09 62);
   --primary-foreground: oklch(0.12 0.008 250);
 
-  /* Éléments secondaires et survol (Muted/Accent) : Adaptés pour le logo */
-  /* --secondary: oklch(0.18 0.008 250); */ /* Version originale */
-  /* --muted: oklch(0.18 0.008 250); */ /* Version originale */
-  /* --accent: oklch(0.2 0.008 250); */ /* Version originale */
-
-  /* MODIFICATION LOGO : Muted et Secondary : Version sombre du brun du logo */
-  --secondary: oklch(0.2 0.005 50);
+  /* Muted et Secondary : Version sombre et élégante du brun */
+  --secondary: oklch(0.18 0.01 50);
   --secondary-foreground: oklch(0.98 0.004 250);
-  --muted: oklch(0.2 0.005 50);
-  --muted-foreground: oklch(0.62 0.008 250);
+  --muted: oklch(0.18 0.01 50);
+  --muted-foreground: oklch(0.65 0.01 250);
 
-  /* MODIFICATION LOGO : Accent : Pêche clair translucide pour les survol */
-  --accent: oklch(0.85 0.09 62 / 50%);
+  /* Accent : Correction de l'opacité pour le Hover (Pêche très subtil en fond, texte clair) */
+  --accent: oklch(0.85 0.09 62 / 12%); 
   --accent-foreground: oklch(0.98 0.004 250);
 
-  /* Destructive : Rouge moderne et moins agressif (inchangé) */
+  /* Destructive */
   --destructive: oklch(0.5 0.16 25);
 
-  /* Bordures translucides pour fusionner parfaitement avec le fond (inchangé) */
+  /* Bordures translucides */
   --border: oklch(0.98 0.004 250 / 8%);
   --input: oklch(0.98 0.004 250 / 8%);
-
-  /* MODIFICATION LOGO : Ring : Utilisation du pêche clair pour l'anneau de focus */
+  
+  /* Ring : Focus pêche transparent */
   --ring: oklch(0.85 0.09 62 / 20%);
 
-  /* Sidebar sombre (adaptée pour le logo) */
+  /* Sidebar sombre cohérente */
   --sidebar: oklch(0.13 0.008 250);
   --sidebar-foreground: oklch(0.98 0.004 250);
-  --sidebar-primary: oklch(0.85 0.09 62); /* Pêche clair pour les boutons */
+  --sidebar-primary: oklch(0.85 0.09 62);
   --sidebar-primary-foreground: oklch(0.12 0.008 250);
-  --sidebar-accent: oklch(
-    0.85 0.09 62 / 50%
-  ); /* Pêche translucide pour les survol */
+  --sidebar-accent: oklch(0.85 0.09 62 / 12%);
   --sidebar-accent-foreground: oklch(0.98 0.004 250);
   --sidebar-border: oklch(0.98 0.004 250 / 8%);
   --sidebar-ring: oklch(0.85 0.09 62 / 20%);
