@@ -15,6 +15,7 @@ import { SubscriptionPayment } from "./pages/auth/SubscriptionPayment"
 import { SubscriptionPlans } from "./pages/auth/SubscriptionPlans"
 import { AccountReviewWaiting } from "./pages/auth/AccountReviewWaiting"
 import { AuthentificationAdmin } from "./pages/auth/AuthentificationAdmin"
+import { SellerDashboard } from "./pages/artisan/SellerDashboard"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,10 +25,10 @@ const router = createBrowserRouter([
       { path: "catalog", element: <Catalogue /> },
       { path: "artisans", element: <ArtistsDirectory /> },
       { path: "about", element: <About /> },
+      { path: "dashboard/artisan", element: <SellerDashboard /> },
     ],
   },
 
-  
   {
     path: "/auth",
     element: <AuthLayout />,
@@ -35,24 +36,28 @@ const router = createBrowserRouter([
       { path: "/auth/auth-register", element: <AuthentificationRegister /> },
       { path: "/auth/auth-connexion", element: <AuthentificationConnexion /> },
       { path: "/auth/auth-register/artisan", element: <RegisterSeller /> },
-      { path: "/auth/auth-register/artisan/plans", element: <SubscriptionPlans /> },
-      { path: "/auth/auth-register/artisan/subscription", element: <SubscriptionPayment /> },      
-      { path: "/auth/auth-register/artisan/subscription/review-waiting", element: <AccountReviewWaiting /> },      
+      {
+        path: "/auth/auth-register/artisan/plans",
+        element: <SubscriptionPlans />,
+      },
+      {
+        path: "/auth/auth-register/artisan/subscription",
+        element: <SubscriptionPayment />,
+      },
+      {
+        path: "/auth/auth-register/artisan/subscription/review-waiting",
+        element: <AccountReviewWaiting />,
+      },
       { path: "/auth/auth-connexion/artisan", element: <ConnexxionSeller /> },
       { path: "/auth/auth-register/client", element: <RegisterClient /> },
       { path: "/auth/auth-connexion/client", element: <ConnexionClient /> },
-      { path: "/auth/auth-connexion/admin", element: <AuthentificationAdmin /> },
+      {
+        path: "/auth/auth-connexion/admin",
+        element: <AuthentificationAdmin />,
+      },
     ],
   },
 
-  // GROUPE VENDEUR
-  // {
-  //   path: "/seller",
-  //   element: (
-  //       <SellerLayout />
-  //   ),
-  //   children: [{ path: "/seller", element: <SellerDashboard /> }],
-  // },
 
   // //ROUTE ADMMIN
   // {
