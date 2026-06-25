@@ -16,6 +16,7 @@ import { SubscriptionPlans } from "./pages/auth/SubscriptionPlans"
 import { AccountReviewWaiting } from "./pages/auth/AccountReviewWaiting"
 import { AuthentificationAdmin } from "./pages/auth/AuthentificationAdmin"
 import { SellerDashboard } from "./pages/artisan/SellerDashboard"
+import { ClientGalleryPortal } from "./pages/client/ClientGalleryPortal"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       { path: "artisans", element: <ArtistsDirectory /> },
       { path: "about", element: <About /> },
       { path: "dashboard/artisan", element: <SellerDashboard /> },
+      {
+        path: "/gallery-portal",
+        element: <ClientGalleryPortal />,
+      },
     ],
   },
 
@@ -57,7 +62,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-
 
   // //ROUTE ADMMIN
   // {
