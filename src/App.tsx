@@ -14,6 +14,7 @@ import { AuthentificationConnexion } from "./pages/auth/AuthentificationConnexio
 import { SubscriptionPayment } from "./pages/auth/SubscriptionPayment"
 import { SubscriptionPlans } from "./pages/auth/SubscriptionPlans"
 import { AccountReviewWaiting } from "./pages/auth/AccountReviewWaiting"
+import { AuthentificationAdmin } from "./pages/auth/AuthentificationAdmin"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
       { path: "/auth/auth-connexion/artisan", element: <ConnexxionSeller /> },
       { path: "/auth/auth-register/client", element: <RegisterClient /> },
       { path: "/auth/auth-connexion/client", element: <ConnexionClient /> },
+      { path: "/auth/auth-connexion/admin", element: <AuthentificationAdmin /> },
     ],
   },
 
