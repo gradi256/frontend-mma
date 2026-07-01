@@ -34,14 +34,14 @@ import axios from "axios"
 import { toast } from "sonner"
 
 type ArtWorkType = {
-  id: string | number
+  id_type: string 
   name: string
   description: string
 }
 
 const PostArtWorkType = async (dataType: ArtWorkType) => {
   const response = await axios.post(
-    "https://wet-nights-beam.loca.lt/api/artworktype",
+    "https://mwanambokart-officiel-1.onrender.com/api/artworktype",
     {
       name: dataType.name,
       description: dataType.description,
@@ -52,12 +52,13 @@ const PostArtWorkType = async (dataType: ArtWorkType) => {
 
 const getArtWorkType = async () => {
     const response = await axios.get(
-      "https://wet-nights-beam.loca.lt/api/artworktype"
+      "https://mwanambokart-officiel-1.onrender.com/api/artworktype"
     )
 
-    console.log(`data type : ${response.data}`)
+    // console.log(`data type : ${response.data}`)
+    console.log(response.data)
 
-    return response.data
+    return response.data.data
 }
 
 export default function Settings() {
@@ -98,7 +99,7 @@ export default function Settings() {
   }
 
   console.log("AVANT QUERY")
-  
+
   const dataType = useQuery({
     queryKey: ["artworktype"],
     queryFn: getArtWorkType,
@@ -324,13 +325,12 @@ export default function Settings() {
                   </div>
                 </form>
 
-                <div className="space-y-3">
+                {/* <div className="space-y-3">
                   <p className="text-xs font-medium text-muted-foreground">
                     Categories actives et configurations
                   </p>
                   <div className="grid max-w-2xl gap-3">
-                    {Array.isArray(dataType.data) ? (
-                      dataType.data.map((type) => (
+                    {dataType.data.map((type) => (
                         <div
                           key={type.id_type}
                           className="flex items-start justify-between gap-4 rounded-lg border border-border/60 bg-muted/20 p-3 transition-colors hover:bg-muted/40"
@@ -353,11 +353,62 @@ export default function Settings() {
                           </Button>
                         </div>
                       ))
-                    ) : (
-                      <p>Erreur</p>
-                    )}
+                    }
                   </div>
-                </div>
+                </div> */}
+                <div className="space-y-3">
+  <p className="text-xs font-medium text-muted-foreground">
+    Catégories actives et configurations
+  </p>
+  <div className="grid max-w-2xl gap-3">
+    {/* ÉTAT INITIAL / CHARGEMENT */}
+    {dataType.isPending && (
+      <p className="text-xs text-muted-foreground animate-pulse">
+        Chargement des catégories...
+      </p>
+    )}
+
+    {/* ÉTAT ERREUR */}
+    {dataType.isError && (
+      <p className="text-xs text-destructive font-medium">
+        Impossible de récupérer les catégories.
+      </p>
+    )}
+
+    {/* ÉTAT SUCCÈS : RENDU DE LA LISTE */}
+    {dataType.isSuccess && Array.isArray(dataType.data) && dataType.data.map((type) => (
+      <div
+        key={type.id_type}
+        className="flex items-start justify-between gap-4 rounded-lg border border-border/60 bg-muted/20 p-3 transition-colors hover:bg-muted/40"
+      >
+        <div className="space-y-0.5">
+          <span className="text-sm font-semibold text-foreground">
+            {type.name}
+          </span>
+          <p className="text-xs font-light text-muted-foreground">
+            {type.description}
+          </p>
+        </div>
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          className="h-8 w-8 text-muted-foreground/60 hover:bg-rose-500/10 hover:text-rose-600"
+        >
+          <Trash2 className="h-3.5 w-3.5" />
+        </Button>
+      </div>
+    ))}
+
+    {/* ÉTAT SUCCÈS : TABLEAU VIDE */}
+    {dataType.isSuccess && Array.isArray(dataType.data) && dataType.data.length === 0 && (
+      <p className="text-xs text-muted-foreground italic">
+        Aucune catégorie enregistrée pour le moment.
+      </p>
+    )}
+  </div>
+</div>
+
               </CardContent>
             </Card>
 
