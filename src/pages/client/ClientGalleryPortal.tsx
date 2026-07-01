@@ -84,7 +84,7 @@ export const ClientGalleryPortal = () => {
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-zinc-950/80 backdrop-blur-[1px]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent" />
         </div>
 
         <div className="relative z-10 max-w-2xl space-y-4">
