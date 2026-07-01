@@ -17,6 +17,9 @@ import { AccountReviewWaiting } from "./pages/auth/AccountReviewWaiting"
 import { AuthentificationAdmin } from "./pages/auth/AuthentificationAdmin"
 import { SellerDashboard } from "./pages/artisan/SellerDashboard"
 import { ClientGalleryPortal } from "./pages/client/ClientGalleryPortal"
+import { DashboardLayout } from "./layouts/DashboardLayout"
+import Dashboard from "./pages/admin/Dashboard"
+import Artworks from "./pages/admin/Artworks"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -63,20 +66,17 @@ const router = createBrowserRouter([
     ],
   },
 
-  // //ROUTE ADMMIN
-  // {
-  //   path: "/admin",
-  //   element: (
-  //     <AdminLayout />
-  //   ),
-  //   children: [
-  //     { index: true, element: <Dashboard /> },
-  //     { path: "/admin/artworks", element: <Artworks /> },
-  //     { path: "/admin/subscriptions", element: <Subscriptions /> },
-  //     { path: "/admin/users", element: <Users /> },
-  //     { path: "/admin/settings", element: <Settings /> },
-  //   ],
-  // },
+  {
+    path: "/admin",
+    element: <DashboardLayout />,
+    children: [
+      { index: true, element: <Dashboard /> },
+      { path: "/admin/artworks", element: <Artworks /> },
+      // { path: "/admin/subscriptions", element: <Subscriptions /> },
+      // { path: "/admin/users", element: <Users /> },
+      // { path: "/admin/settings", element: <Settings /> },
+    ],
+  },
 ])
 
 const App = () => {

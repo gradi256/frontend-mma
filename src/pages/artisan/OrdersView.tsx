@@ -61,7 +61,7 @@ export const OrdersView = () => {
 
             <div className="flex lg:flex-col items-center gap-2 w-full lg:w-auto justify-end shrink-0 border-t lg:border-t-0 pt-4 lg:pt-0 border-border/60">
               <div className="grid grid-cols-2 gap-2 w-full lg:w-44">
-                <Button size="sm" variant="outline" className="h-9 text-xs border-zinc-700/50 gap-1 bg-amber-500/5 text-amber-600 border-amber-500/20 hover:bg-amber-500/10">
+                <Button size="sm" variant="outline" className="h-9 text-xs gap-1 bg-amber-500/5 text-amber-600 border-amber-500/20 hover:bg-amber-500/10">
                   <Clock className="w-3.5 h-3.5" /> En cours
                 </Button>
                 <Button size="sm" variant="outline" className="h-9 text-xs border-zinc-700/50 gap-1 hover:bg-emerald-500/10 hover:text-emerald-600 transition-colors">
