@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { 
   Layers, ShoppingBag, Bell, CreditCard, 
-   LogOut, Menu, X 
+   LogOut, Menu, X, 
+   Settings
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -19,6 +20,7 @@ export const ArtisanLayout = ({ children, activePage, setActivePage }: LayoutPro
     { id: "catalog", name: "Mes Créations", icon: <ShoppingBag className="h-4 w-4" /> },
     { id: "orders", name: "Commandes WhatsApp", icon: <Bell className="h-4 w-4" /> },
     { id: "billing", name: "Mon Abonnement", icon: <CreditCard className="h-4 w-4" /> },
+    { id: "settings", name: "Paramètres", icon: <Settings className="h-4 w-4" /> },
   ];
 
   return (

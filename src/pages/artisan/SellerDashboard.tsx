@@ -4,6 +4,7 @@ import { CatalogView } from "./CatalogView";
 import { OrdersView } from "./OrdersView";
 import { BillingView } from "./BillingView";
 import { ArtisanLayout } from "@/layouts/ArtisanLayout";
+import { ArtisanSettingsView } from "./ArtisanSettingsView";
 
 export const SellerDashboard = () => {
   const [activePage, setActivePage] = useState("dashboard");
@@ -14,6 +15,7 @@ export const SellerDashboard = () => {
       {activePage === "catalog" && <CatalogView />}
       {activePage === "orders" && <OrdersView />}
       {activePage === "billing" && <BillingView />}
+      {activePage === "settings" && <ArtisanSettingsView />}
     </ArtisanLayout>
   );
 };
