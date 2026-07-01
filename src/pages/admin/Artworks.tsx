@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { 
   Plus, 
   Search, 
@@ -15,9 +15,10 @@ import {
   ArrowUpDown,
   ChevronUp,
   ChevronDown,
-  BarChart3
+  BarChart3,
+  AlertTriangle,
+  X
 } from "lucide-react";
-// Importations Recharts
 import {
   ResponsiveContainer,
   ComposedChart,
@@ -48,6 +49,9 @@ export default function Artworks() {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);
+  
+  // NOUVEL ÉTAT : ID de l'œuvre en cours de suppression (null si aucune)
+  const [deletingId, setDeletingId] = useState(null);
 
   const handleSort = (key) => {
     let direction = "asc";
@@ -57,14 +61,16 @@ export default function Artworks() {
     setSortConfig({ key, direction });
   };
 
-  const handleDelete = (id) => {
-    setArtworks((prev) => prev.filter(artwork => artwork.id !== id));
+  // Déclenchement final après confirmation dans la carte modale
+  const confirmDelete = () => {
+    if (deletingId) {
+      setArtworks((prev) => prev.filter(artwork => artwork.id !== deletingId));
+      setDeletingId(null); // Ferme la modale
+    }
   };
 
-  // Filtrage et tri des données
   const processedArtworks = useMemo(() => {
     const lowerSearch = searchTerm.toLowerCase();
-    
     const result = artworks.filter(artwork => {
       const matchesSearch = !searchTerm || 
                             artwork.title.toLowerCase().includes(lowerSearch) || 
@@ -94,7 +100,6 @@ export default function Artworks() {
     return result;
   }, [artworks, searchTerm, categoryFilter, likesFilter, sortConfig]);
 
-  // Préparation des données spécifiquement raccourcies pour le graphique (évite la surcharge visuelle)
   const chartData = useMemo(() => {
     return processedArtworks.map(art => ({
       name: art.title.length > 15 ? `${art.title.substring(0, 12)}...` : art.title,
@@ -129,6 +134,11 @@ export default function Artworks() {
       : <ChevronDown className="h-3 w-3 text-primary stroke-[2.5]" />;
   };
 
+  // Trouver l'objet complet correspondant à l'ID en cours de suppression pour l'afficher dans la modale
+  const artworkBeingDeleted = useMemo(() => {
+    return artworks.find(art => art.id === deletingId);
+  }, [deletingId, artworks]);
+
   return (
     <div className="space-y-8 max-w-[1600px] mx-auto w-full px-1">
       
@@ -148,7 +158,7 @@ export default function Artworks() {
         </button>
       </div>
 
-      {/* SECTION : Graphique analytique réactif aux filtres */}
+      {/* SECTION : Graphique analytique */}
       {chartData.length > 0 && (
         <div className="rounded-xl border border-border/60 bg-card p-5 shadow-[0_1px_3px_rgba(0,0,0,0.01)] space-y-4">
           <div className="flex items-center gap-2 border-b border-border/40 pb-3">
@@ -303,7 +313,7 @@ export default function Artworks() {
                         <Edit3 className="h-4 w-4 stroke-[1.5]" />
                       </button>
                       <button 
-                        onClick={() => handleDelete(artwork.id)}
+                        onClick={() => setDeletingId(artwork.id)} // Ouvre la modale
                         className="p-1.5 rounded-md text-destructive hover:bg-destructive/10 transition-all" 
                         title="Supprimer"
                         aria-label={`Supprimer l'œuvre ${artwork.title}`}
@@ -389,6 +399,71 @@ export default function Artworks() {
           </div>
         </div>
       </div>
+
+      {/* COMPOSANT INTERNE : Carte de Confirmation (Modale) */}
+      {deletingId && artworkBeingDeleted && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/40 backdrop-blur-sm transition-all animate-in fade-in duration-200">
+          {/* Overlay cliquable pour fermer la modale */}
+          <div className="absolute inset-0" onClick={() => setDeletingId(null)} />
+          
+          {/* Fenêtre de dialogue */}
+          <div className="relative w-full max-w-md bg-card border border-border rounded-xl shadow-xl p-6 space-y-6 z-10 scale-100 animate-in zoom-in-95 duration-200">
+            
+            {/* Bouton Fermer en haut à droite */}
+            <button 
+              onClick={() => setDeletingId(null)}
+              className="absolute right-4 top-4 p-1 rounded-md text-muted-foreground/60 hover:bg-accent hover:text-accent-foreground transition-all"
+              aria-label="Fermer la boîte de dialogue"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            {/* En-tête de la carte */}
+            <div className="flex gap-4 items-start">
+              <div className="p-3 bg-destructive/10 text-destructive rounded-xl shrink-0">
+                <AlertTriangle className="h-6 w-6 stroke-[1.5]" />
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-base font-semibold text-foreground tracking-tight">
+                  Supprimer l'œuvre d'art ?
+                </h4>
+                <p className="text-xs md:text-sm text-muted-foreground/80 font-light leading-relaxed">
+                  Êtes-vous sûr de vouloir supprimer cette œuvre ? Cette action est irréversible et retirera le produit du catalogue public.
+                </p>
+              </div>
+            </div>
+
+            {/* Détails du produit ciblé */}
+            <div className="flex items-center gap-3 p-3 bg-muted/30 rounded-lg border border-border/40 text-xs">
+              <img 
+                src={artworkBeingDeleted.image} 
+                alt={artworkBeingDeleted.title} 
+                className="h-10 w-10 rounded object-cover border border-border/40 bg-muted"
+              />
+              <div className="flex flex-col overflow-hidden">
+                <span className="font-medium text-foreground truncate">{artworkBeingDeleted.title}</span>
+                <span className="text-muted-foreground/70 font-mono mt-0.5">{artworkBeingDeleted.id} — par {artworkBeingDeleted.artist}</span>
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center justify-end gap-3 pt-2">
+              <button
+                onClick={() => setDeletingId(null)}
+                className="px-4 py-2 text-xs md:text-sm font-medium border border-border rounded-lg bg-background hover:bg-accent transition-all text-foreground"
+              >
+                Annuler
+              </button>
+              <button
+                onClick={confirmDelete}
+                className="px-4 py-2 text-xs md:text-sm font-medium bg-destructive text-destructive-foreground rounded-lg shadow-sm hover:bg-destructive/90 transition-all"
+              >
+                Supprimer définitivement
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

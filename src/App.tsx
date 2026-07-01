@@ -20,6 +20,11 @@ import { ClientGalleryPortal } from "./pages/client/ClientGalleryPortal"
 import { DashboardLayout } from "./layouts/DashboardLayout"
 import Dashboard from "./pages/admin/Dashboard"
 import Artworks from "./pages/admin/Artworks"
+import Users from "./pages/admin/Users"
+import Settings from "./pages/admin/Settings"
+import Subscriptions from "./pages/admin/Subscription"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { Toaster } from "sonner"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -72,17 +77,22 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Dashboard /> },
       { path: "/admin/artworks", element: <Artworks /> },
-      // { path: "/admin/subscriptions", element: <Subscriptions /> },
-      // { path: "/admin/users", element: <Users /> },
-      // { path: "/admin/settings", element: <Settings /> },
+      { path: "/admin/subscriptions", element: <Subscriptions /> },
+      { path: "/admin/users", element: <Users /> },
+      { path: "/admin/settings", element: <Settings /> },
     ],
   },
 ])
 
+const queryClient = new QueryClient()
+
 const App = () => {
   return (
     <div>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <Toaster position="top-center" richColors />
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </div>
   )
 }
